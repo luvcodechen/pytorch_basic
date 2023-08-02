@@ -1,6 +1,8 @@
 import torch
 import numpy as np
 
+from instance import flatten
+
 # print(torch.__version__)
 # print(torch.cuda.is_available())
 # print(torch.version.cuda)
@@ -63,4 +65,35 @@ print(len(t.shape))
 print(torch.tensor(t.shape).prod())
 print(t.numel())
 print("------------------")
+print(t.reshape(1, 12))
+print(t.reshape(1, 12).shape)
+print(t.reshape(1, 12).squeeze())
+print(t.reshape(1, 12).squeeze().shape)
+print(t.reshape(1, 12).squeeze().unsqueeze(dim=0))
+print(t.reshape(1, 12).squeeze().unsqueeze(dim=0).shape)
+print("------------------")
 
+print(flatten(t))  # Reshape and Squeeze
+print(t.reshape(1, 12))  # Reshape only
+print(t.reshape(12))
+print(t.reshape(-1))
+print("------------------")
+t1 = torch.tensor([[1, 2], [3, 4]])
+t2 = torch.tensor([[5, 6], [7, 8]])
+print(torch.cat((t1, t2), dim=0))
+print(torch.cat((t1, t2), dim=1))
+print("---------   CNN Flatten Operation Visualized--Tensor Batch Processing For Deep learning  ------------")
+t1 = torch.ones(4, 4, dtype=torch.int64)
+t2 = torch.ones(4, 4, dtype=torch.int64) * 2
+t3 = torch.ones(4, 4, dtype=torch.int64) * 3
+t = torch.stack((t1, t2, t3))
+print(t.shape)  # 3 4 4 三个4*4张量，表示一个批次
+# print(t)
+t = t.reshape(3, 1, 4, 4)
+# print(t)
+# print(t.reshape(1, -1)[0])
+# print(t.reshape(-1))
+# print(t.view(t.numel()))
+# print(t.flatten())
+print(t.flatten(start_dim=1).shape)  # [3,16]
+print(t.flatten(start_dim=1))  #
