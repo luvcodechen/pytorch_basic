@@ -97,3 +97,35 @@ t = t.reshape(3, 1, 4, 4)
 # print(t.flatten())
 print(t.flatten(start_dim=1).shape)  # [3,16]
 print(t.flatten(start_dim=1))  #
+print("------------------Tensor Reduction Operations-------")
+t = torch.tensor([
+    [0, 1, 0],
+    [2, 0, 2],
+    [0, 3, 0]
+], dtype=torch.float32)
+print(t.sum())
+print(t.numel())
+print(t.sum().numel())
+print(t.sum().numel() < t.numel())
+print(t.prod())
+print(t.mean())
+print(t.std())
+t = torch.tensor([
+    [1, 1, 1, 1],
+    [2, 2, 2, 2],
+    [3, 3, 3, 3]
+], dtype=torch.float32)
+print(t.sum(dim=0))
+print(t.sum(dim=1))
+t = torch.tensor([
+    [1, 0, 0, 2],
+    [0, 3, 3, 0],
+    [4, 0, 0, 5]
+], dtype=torch.float32)
+print(t.max())
+print(t.argmax())
+print(t.flatten())
+print(t.max(dim=0))
+print(t.argmax(dim=0))
+print(t.max(dim=1))
+print(t.argmax(dim=1))
