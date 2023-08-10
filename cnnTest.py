@@ -1,3 +1,4 @@
+import torch
 import torch.nn as nn
 
 
@@ -17,3 +18,19 @@ class Network(nn.Module):
         # implement the forward pass
         return t
 
+
+network = Network()
+print(network.conv1.weight)
+print(network.conv1.weight.shape)
+print(network.conv2.weight.shape)
+print(network.fc1.weight.shape)
+print(network.fc2.weight.shape)
+print(network.out.weight.shape)
+in_features = torch.tensor([1, 2, 3, 4], dtype=torch.float32)
+weight_matrix = torch.tensor([
+    [1, 2, 3, 4],
+    [2, 3, 4, 5],
+    [3, 4, 5, 6],
+], dtype=torch.float32)
+# print(weight_matrix.matmul(in_features))
+print(weight_matrix.mv(in_features))
