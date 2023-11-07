@@ -3,9 +3,10 @@ import numpy as np
 
 from instance import flatten
 
-# print(torch.__version__)
-# print(torch.cuda.is_available())
-# print(torch.version.cuda)
+print(torch.__version__)
+print(torch.cuda.is_available())
+print(torch.version.cuda)
+print(torch.cuda.device_count())
 t = torch.tensor([1, 2, 3])
 print(t)
 t = t.cuda()  # 用gpu计算
