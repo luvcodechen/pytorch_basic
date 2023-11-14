@@ -11,8 +11,4 @@ def convert_ipynb_to_py(ipynb_file, py_file):
                 f.write(''.join(cell['source']) + '\n\n')
 
 
-# convert_ipynb_to_py('Stack_vs_Caocat.ipynb', 'test.py')
-
-# convert_ipynb_to_py('cnntest.ipynb', 'test.py')
-# convert_ipynb_to_py('cnntest.ipynb', 'qww.py')
-# convert_ipynb_to_py('runwithGPU.ipynb', 'dsa.py')
+convert_ipynb_to_py('dataset_normalization.ipynb', 'dataset_.py')
